@@ -8,7 +8,7 @@ test(last_element__simple, all(Last == [3])) :-
 
 test(last_element__one_element, all(Last == [4])) :-
         last_element(Last, [4]) .
-        
+
 test(last_element__empty_list, fail) :-
         last_element(_, []) .
 
