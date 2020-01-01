@@ -1,15 +1,12 @@
 is_flat([]).
-is_flat([X]) :- not(is_list(X)).
-is_flat([H | T]) :- not(is_list(H)), is_flat(T).
+is_flat([X|Xs]) :- not(is_list(X)), is_flat(Xs).
 
 my_flatten(L, L) :- is_flat(L).
-my_flatten(L, F) :- append(H, M, L)
-					, append([E], T, M)
-					, my_flatten(H, FH)
-					, my_flatten(T, FT)
-					, my_flatten(E, FE)
-					, append(FH, FE, FFH)
-					, append(FFH, FT, F).
+my_flatten([X|Xs], [X | Ys]) :- not(is_list(X)) , my_flatten(Xs, Ys).
+my_flatten([X|Xs], F) :- is_list(X)
+                        , my_flatten(X, FX)
+                        , my_flatten(Xs, FXs)
+                        , append(FX, FXs, F).
 
 :- begin_tests(tests).
 
