@@ -10,7 +10,7 @@ my_flatten([X|Xs], F) :- is_list(X)
 
 :- begin_tests(tests).
 
-% todo: fix tests
+% todo: fix tests or maybe flatten logic(?)
 
 test(flatten_empty) :-
 	my_flatten([], []).
