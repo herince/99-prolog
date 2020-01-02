@@ -5,8 +5,6 @@ pack([X, X|Xs], [[X|Ys]|Zs]) :- pack([X|Xs], [Ys|Zs]).
 
 :- begin_tests(tests).
 
-% todo: fix tests
-
 test(pack_empty) :-
 	pack([], []).
 
