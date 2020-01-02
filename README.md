@@ -3,7 +3,7 @@
 To run the tests for the solution of the N-th problem:
 
 ```
-> prolog pN.pl
+> prolog pN*.pl
 
 ?- run_tests.
 ```
