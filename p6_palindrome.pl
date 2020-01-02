@@ -4,7 +4,7 @@ palindrome([]).
 palindrome([_]).
 palindrome([X|XS]) :-
 	append(L, [Last], XS),
-	(X == Last),
+	(X = Last),
 	palindrome(L).
 
 :- begin_tests(tests).
@@ -12,11 +12,10 @@ palindrome([X|XS]) :-
 test(palindrome_empty) :-
         palindrome([]) .
 
-%todo: fix tests
-test(palindrome_odd) :-
+test(palindrome_odd, nondet) :-
         palindrome([1, 2, 3, 2, 1]) .
 
-test(palindrome_even) :-
+test(palindrome_even, nondet) :-
         palindrome([1, 2, 2, 1]).
 
 test(palindrome_no_palindrome, fail) :-
