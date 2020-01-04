@@ -6,20 +6,18 @@
 %len(X, Y) :- len_helper(X, Y, 0).
 
 len([], 0).
-len([_|XS], L) :-
-	len(XS, PrevL),
-	L is PrevL + 1.
+len([_|XS], N1) :- len(XS, N), N1 is N + 1.
 
 :- begin_tests(tests).
 
-test(len_empty, all(L == [0])) :-
-        len([], L) .
+test(len_empty, all(N == [0])) :-
+        len([], N) .
 
-test(len_one, all(L == [1])) :-
-        len([42], L) .
+test(len_one, all(N == [1])) :-
+        len([42], N).
 
-test(len_random, all(L == [37])) :-
-		findall(N, between(1, 37, N), List),
-        len(List, L).
+test(len_random, all(N == [37])) :-
+		findall(X, between(1, 37, X), List),
+        len(List, N).
 
 :- end_tests(tests).

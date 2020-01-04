@@ -10,16 +10,16 @@ palindrome([X|XS]) :-
 :- begin_tests(tests).
 
 test(palindrome_empty) :-
-        palindrome([]) .
+	palindrome([]) .
 
 test(palindrome_odd, nondet) :-
-        palindrome([1, 2, 3, 2, 1]) .
+	palindrome([1, 2, 3, 2, 1]) .
 
 test(palindrome_even, nondet) :-
-        palindrome([1, 2, 2, 1]).
+	palindrome([1, 2, 2, 1]).
 
 test(palindrome_no_palindrome, fail) :-
-	findall(N, between(1, 10, N), List),
-        palindrome(List).
+	findall(N, between(1, 10, N), List)
+	, palindrome(List).
 
 :- end_tests(tests).
